@@ -63,11 +63,13 @@ end
 
 -- next
 function M.next()
+    M.pause()
     mpc({ 'next' })
 end
 
 -- prev
 function M.prev()
+    M.pause()
     mpc({ 'prev' })
 end
 
