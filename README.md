@@ -1,7 +1,7 @@
 # mpd.nvim
 Control your music from inside neovim.
 
-`mpd.nvim` allows you to control [mpd](https://www.musicpd.org/) from inside Neovim via Telescope.
+`mpd.nvim` allows you to control [mpd](https://www.musicpd.org/) from inside Neovim via UI.
 
 ![image](https://github.com/paulfrische/mpd.nvim/assets/61984114/294f8ab6-af02-4ccc-a1e5-e14168ca4b52)
 
@@ -9,16 +9,18 @@ Control your music from inside neovim.
 ### Setup
 ```lua
 require('mpd').setup({
-  host = '127.0.0.1',
-  port = '6600', -- is quite possible that you use another port for mpd
+    host = '127.0.0.1',
+    port = '6600', -- is quite possible that you use another port for mpd
+    sink_name = 'PipeWire ALSA [mpd]', -- sink name from pactl list sink-inputs (for volume control)
 })
 ```
 
-### Telescope
+### UI
 ```lua
-require('mpd').actions(opts)   -- opts are used for telescope picker
+require('mpd').actions(opts)   -- opts are used for the UI picker
 require('mpd').find_song(opts) -- keeping it `nil` is a good default
 require('mpd').find_album(opts)
+require('mpd').set_volume()
 ```
 
 ### Other Functions
